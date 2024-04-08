@@ -12,4 +12,7 @@ class Post extends Model
     public function category_post(){
         return $this->hasMany(CategoryPost::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

@@ -15,4 +15,8 @@ class CategoryPost extends Model
         'post_id'
     ];
     public $timestamps = false;
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
