@@ -1,6 +1,8 @@
 <div class="container p-0">
     {{-- image --}}
-    <img src="{{$post->image}}" alt="" class="w-100">
+    <a href="{{route('post.show',$post->id)}}">
+        <img src="{{ $post->image }}" alt="" class="w-100">
+    </a>
 </div>
 <div class="card-body">
     <div class="row align-items-center">
@@ -22,9 +24,14 @@
             {{-- categories --}}
             @foreach ($post->category_post as $categoryPost)
                 <div class="badge bg-opacity-50 bg-secondary">
-                    {{$categoryPost->category->name}}
+                    {{ $categoryPost->category->name }}
                 </div>
             @endforeach
         </div>
     </div>
+    {{-- owner and description --}}
+    <a href="#" class="text-decoration-none text-dark fw-bold">{{ $post->user->name }}</a>
+    &nbsp;
+    <p class="d-inline fw-light">{{ $post->description }}</p>
+    <p class="text-muted small">{{ $post->created_at->diffForHumans() }}</p>
 </div>
