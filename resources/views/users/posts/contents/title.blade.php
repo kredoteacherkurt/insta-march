@@ -26,7 +26,7 @@
                 <div class="dropdown-menu">
                     @if ($post->user->id == Auth::id())
                         {{-- edit and delete --}}
-                        <a href="#" class="dropdown-item text-warning">
+                        <a href="{{route('post.edit',$post->id)}}" class="dropdown-item text-warning">
                             <i class="fa-solid fa-pen-to-square"></i> Edit
                         </a>
                         <button class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#delete-post-{{$post->id}}" >

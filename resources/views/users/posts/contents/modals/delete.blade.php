@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <form action="#" method="post">
+                <form action="{{route('post.delete',$post)}}" method="post">
                     @csrf
                     @method('DELETE')
 
