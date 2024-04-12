@@ -3,12 +3,12 @@
     @if ($post->comments)
 
         <ul class="list-group mt-2">
-            @foreach ($post->comments as $comment)
+            @foreach ($post->comments->take(3) as $comment)
                 <li class="list-group-item border-0 p-0 mb-2">
                     <a href="#" class="text-decoration-none text-dark fw-bold">{{ $comment->user->name }}</a>
                     &nbsp;
                     <p class="d-inline fw-light">{{ $comment->body }}</p>
-                    <form action="{{route('comment.delete',$comment)}}" method="post">
+                    <form action="{{ route('comment.delete', $comment) }}" method="post">
                         @csrf
                         @method('DELETE')
                         <span class="text-muted small">{{ $comment->created_at->diffForHumans() }}</span>
@@ -18,6 +18,12 @@
                         @endif
                     </form>
                 </li>
+                @if ($loop->last)
+                    <li class="list-group-item border-0 p-0 mb-2">
+                        <a href="{{ route('post.show', $post->id) }}" class="text-decoration-none small">View all
+                            {{ $post->comments->count() }} comments </a>
+                    </li>
+                @endif
             @endforeach
         </ul>
 

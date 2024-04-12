@@ -86,8 +86,25 @@
                     <p class="d-inline fw-light">{{ $post->description }}</p>
                     <p class="text-muted small">{{ $post->created_at->diffForHumans() }}</p>
                     <div class="mt-3">
-                        {{-- show comments here --}}
+                        <ul class="list-group mt-2">
+                            @foreach ($post->comments as $comment)
+                                <li class="list-group-item border-0 p-0 mb-2">
+                                    <a href="#" class="text-decoration-none text-dark fw-bold">{{ $comment->user->name }}</a>
+                                    &nbsp;
+                                    <p class="d-inline fw-light">{{ $comment->body }}</p>
+                                    <form action="{{ route('comment.delete', $comment) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <span class="text-muted small">{{ $comment->created_at->diffForHumans() }}</span>
+                                        @if ($comment->user_id == Auth::id())
+                                            &middot;
+                                            <button class="btn border-0 text-danger p-0 small">Delete</button>
+                                        @endif
+                                    </form>
+                                </li>
 
+                            @endforeach
+                        </ul>
 
                         <form action="#" method="post">
                             @csrf
