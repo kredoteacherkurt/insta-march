@@ -85,6 +85,22 @@
                     &nbsp;
                     <p class="d-inline fw-light">{{ $post->description }}</p>
                     <p class="text-muted small">{{ $post->created_at->diffForHumans() }}</p>
+                    <div class="mt-3">
+                        {{-- show comments here --}}
+
+
+                        <form action="#" method="post">
+                            @csrf
+
+                            <div class="input-group">
+                                <textarea name="body" id="" rows="1" class="form-control form-control-sm"
+                                    placeholder="Add a comment .."></textarea>
+                                <button type="submit" class="btn btn-outline-secondary btn-sm">Post</button>
+
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>

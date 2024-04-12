@@ -34,4 +34,6 @@
     &nbsp;
     <p class="d-inline fw-light">{{ $post->description }}</p>
     <p class="text-muted small">{{ $post->created_at->diffForHumans() }}</p>
+
+    @include('users.posts.contents.comment')
 </div>
