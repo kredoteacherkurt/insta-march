@@ -4,6 +4,7 @@
 .avatar-lg{
     height: 9rem;
     width: 9rem;
+    object-fit: cover;
 }
 .icon-lg{
     font-size: 9rem;
@@ -11,4 +12,5 @@
 .avatar-sm {
     height: 2rem;
     width: 2rem;
+    object-fit: cover;
 }

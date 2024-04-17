@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Auth;
 class Post extends Model
 {
     use HasFactory;
@@ -17,5 +17,14 @@ class Post extends Model
     }
     public function comments(){
         return $this->hasMany(Comment::class);
+    }
+    public function likes(){
+        return $this->hasMany(Like::class);
+        #select * from likes where post_id = ??
+    }
+    public function isLiked(){
+       return $this->likes()->where('user_id',Auth::user()->id)->exists();
+        #SELECT * FROM likes WHERE post_id ?? AND WHERE user_id = = ??
+            #exists returns true or false
     }
 }
