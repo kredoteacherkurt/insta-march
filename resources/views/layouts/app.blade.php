@@ -73,7 +73,7 @@
                                 <a id="navbarDropdown" class="nav-link" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                    @if (Auth::user()->avatar)
-                                        <img src="#" alt="" class="rounded-circle avatar-sm">
+                                        <img src="{{Auth::user()->avatar}}" alt="" class="rounded-circle avatar-sm">
                                    @else
                                         <i class="fa-solid fa-circle-user icon-sm text-dark"></i>
                                    @endif
@@ -83,7 +83,7 @@
                                     {{-- admin controls: soon --}}
 
                                     {{-- profile --}}
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{route('profile.show',Auth::user()->id)}}" class="dropdown-item">
                                         <i class="fa-solid fa-circle-user"></i>Profile
                                     </a>
 

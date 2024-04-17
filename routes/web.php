@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+
 
 
 
@@ -22,6 +24,12 @@ Route::group(["middleware"=>"auth"],function(){
     #comments
     Route::post('/comments/{id}',[CommentController::class, 'store'])->name('comment.store');
     Route::delete('/comment/delete/{comment}',[PostController::class, 'destroy'])->name('comment.delete');
+
+    #profile
+    Route::get('/profile/show/{id}',[ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit/{id}',[ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update/{id}',[ProfileController::class, 'update'])->name('profile.update');
+
 
 
 });

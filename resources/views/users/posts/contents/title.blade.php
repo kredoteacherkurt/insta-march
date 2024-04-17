@@ -3,14 +3,14 @@
         <div class="col-auto">
             {{-- display icon or avatar --}}
             @if ($post->user->avatar)
-                <img src="#" alt="" class="rounded-circle avatar-sm">
+                <img src="{{$post->user->avatar}}" alt="" class="rounded-circle avatar-sm">
             @else
                 <i class="fa-solid fa-circle-user text-secondary icon-sm"></i>
             @endif
         </div>
         <div class="col ps-0">
             {{-- display the name of the owner --}}
-            <a href="" class="text-decoration-none text-dark">
+            <a href="{{route('profile.show',$post->user->id)}}" class="text-decoration-none text-dark">
                 {{ $post->user->name }}
             </a>
         </div>

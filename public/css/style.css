@@ -1,3 +1,14 @@
 .icon-sm {
     font-size: 2rem !important;
 }
+.avatar-lg{
+    height: 9rem;
+    width: 9rem;
+}
+.icon-lg{
+    font-size: 9rem;
+}
+.avatar-sm {
+    height: 2rem;
+    width: 2rem;
+}
