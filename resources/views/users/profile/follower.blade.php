@@ -34,7 +34,7 @@
                                             method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn text-danger shadow-none btn-sm">Unfollow</button>
+                                            <button type="submit" class="btn text-danger shadow-none btn-sm">Following</button>
                                         </form>
                                     @else
                                         <form action="" method="post">
