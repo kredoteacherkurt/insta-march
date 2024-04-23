@@ -27,17 +27,17 @@
         <div class="row mb-3">
             <div class="col-auto">
                 <a href="#" class="text-decoration-none text-dark">
-                    <strong>{{ $user->posts->count() }}</strong> posts
+                    <strong>{{ $user->posts->count() }}</strong> {{ ($user->posts->count() > 1) ? "Posts" : "Post" }}
                 </a>
             </div>
             <div class="col-auto">
-                <a href="#" class="text-decoration-none text-dark">
-                    <strong>0</strong>Followers
+                <a href="{{route('followers.show',$user->id)}}" class="text-decoration-none text-dark">
+                    <strong>{{ $user->followers->count()}}</strong> {{ ($user->followers->count() > 1) ? "Followers" : "Follower" }}
                 </a>
             </div>
             <div class="col-auto">
-                <a href="#" class="text-decoration-none text-dark">
-                    <strong>0</strong> Following
+                <a href="{{route('following.show',$user->id)}}" class="text-decoration-none text-dark">
+                    <strong>{{ $user->following->count()}}</strong> Following
                 </a>
             </div>
         </div>

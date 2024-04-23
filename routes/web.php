@@ -41,6 +41,8 @@ Route::group(["middleware"=>"auth"],function(){
     Route::post('/follow/store/{id}',[FollowController::class, 'store'])->name('follow.store');
     Route::delete('/follow/delete/{id}',[FollowController::class, 'destroy'])->name('follow.delete');
 
+    Route::get('/followers/{id}',[ProfileController::class, 'followers'])->name('followers.show');
+    Route::get('/following/{id}',[ProfileController::class, 'following'])->name('following.show');
 
 
 });

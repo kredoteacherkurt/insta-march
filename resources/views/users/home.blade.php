@@ -49,7 +49,7 @@
                             <a href="" class="text-decoration-none">{{ $user->name }}</a>
                         </div>
                         <div class="col text-end">
-                            <form action="" method="post">
+                            <form action="{{route('follow.store',$user->id)}}" method="post">
                                 @csrf
                                 <button type="submit" class="btn border-0 p-0 text-primary btn-sm">Follow</button>
                             </form>
