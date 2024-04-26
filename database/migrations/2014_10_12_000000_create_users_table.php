@@ -23,6 +23,7 @@ return new class extends Migration
                 ->default(2)
                 ->comment('1:admin 2:user');
             // $table->rememberToken();
+            // $table->softDeletes();
             $table->timestamps();
         });
     }
